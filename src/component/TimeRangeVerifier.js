@@ -45,81 +45,85 @@ const TimeRangeVerifier = () => {
 
 	return (
 		<div>
-			<section className='time--range section--container'>
-				<h2 className='section--title'>Time Ranges</h2>
-				<div className='section--body'>
-					<TimeRangePicker
-						className='picker'
-						onChange={onRangeChange}
-						value={rangeValue}
-						disableClock={true}
-					/>
-					<button className='button--add' onClick={addRange}>
-						<FontAwesome className='fas fa-plus' name='add' />
-					</button>
-					<ul className='list'>
-						{ranges.map((range) => (
-							<li className='list--item'>
-								{range.start} ~ {range.end}
-								<button className='button--delete'>
+			<div className='section--container'>
+				<section className='time--range '>
+					<h2 className='section--title'>Time Ranges</h2>
+					<div className='section--body'>
+						<TimeRangePicker
+							className='picker'
+							onChange={onRangeChange}
+							value={rangeValue}
+							disableClock={true}
+						/>
+						<button className='button--add' onClick={addRange}>
+							<FontAwesome className='fas fa-plus' name='add' />
+						</button>
+						<ul className='list'>
+							{ranges.map((range) => (
+								<li className='list--item'>
+									{range.start} ~ {range.end}
+									<button className='button--delete'>
+										<FontAwesome
+											className='fas fa-minus '
+											name='delete'
+											onClick={deleteRange}
+										/>
+									</button>
+								</li>
+							))}
+						</ul>
+					</div>
+				</section>
+			</div>
+			<div className=' section--container'>
+				<section className='time--selected '>
+					<h2 className='section--title'>Time Range Verifier</h2>
+					<div className='section--body'>
+						<TimePicker
+							className='picker'
+							onChange={onTimeChange}
+							value={timeValue}
+							disableClock={true}
+						/>
+						<button className='button--add' onClick={addTime}>
+							<FontAwesome className='fas fa-plus' name='add' />
+						</button>
+						<ul className='list'>
+							{times.map((time) => (
+								<li className='list--item'>
 									<FontAwesome
-										className='fas fa-minus '
-										name='delete'
-										onClick={deleteRange}
+										className={
+											isTimeInRange(time, ranges)
+												? "fas fa-check mark in--range"
+												: "fas fa-exclamation-triangle mark out--range"
+										}
 									/>
-								</button>
-							</li>
-						))}
-					</ul>
-				</div>
-			</section>
-			<section className='time--selected section--container'>
-				<h2 className='section--title'>Time Range Verifier</h2>
-				<div className='section--body'>
-					<TimePicker
-						className='picker'
-						onChange={onTimeChange}
-						value={timeValue}
-						disableClock={true}
-					/>
-					<button className='button--add' onClick={addTime}>
-						<FontAwesome className='fas fa-plus' name='add' />
-					</button>
-					<ul className='list'>
-						{times.map((time) => (
-							<li className='list--item'>
-								<FontAwesome
-									className={
-										isTimeInRange(time, ranges)
-											? "fas fa-check mark in--range"
-											: "fas fa-exclamation-triangle mark out--range"
-									}
-								/>
-								{time.time}
-								<button className='button--delete'>
-									<FontAwesome
-										className='fas fa-minus'
-										name='delete'
-										onClick={deleteTime}
-									/>
-								</button>
-							</li>
-						))}
-					</ul>
-				</div>
-			</section>
-			<section className='time--range--list section--container'>
-				<h2 className='section--title'>Time Ranges</h2>
-				<div className='section--body'>
-					<ul className='list'>
-						{ranges.map((range) => (
-							<li className='list--item'>
-								{range.start} ~ {range.end}
-							</li>
-						))}
-					</ul>
-				</div>
-			</section>
+									{time.time}
+									<button className='button--delete'>
+										<FontAwesome
+											className='fas fa-minus'
+											name='delete'
+											onClick={deleteTime}
+										/>
+									</button>
+								</li>
+							))}
+						</ul>
+					</div>
+				</section>
+				<section className='time--range--list'>
+					<h2 className='section--title'>Time Ranges</h2>
+					<div className='section--body'>
+						<ul className='list'>
+							{ranges.map((range) => (
+								<li className='list--item'>
+									{range.start} ~ {range.end}
+								</li>
+							))}
+						</ul>
+					</div>
+				</section>
+			</div>
 		</div>
 	);
 };
