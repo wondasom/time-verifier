@@ -90,3 +90,7 @@ button:hover {
 		display: none;
 	}
 }
+
+.react-timerange-picker__inputGroup__leadingZero {
+	position: relative;
+}
