@@ -12,6 +12,12 @@ Users are able to
 - see time values marked when they are outside the given time ranges.
 
 
+## Future Tasks 💬
+- to apply container component pattern
+- to make the codes more modular
+- to add styled components
+- ...
+
 
 ## ☑️ Setup
 
