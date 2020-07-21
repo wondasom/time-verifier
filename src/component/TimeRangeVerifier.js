@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import TimeRangePicker from "@wojtekmaj/react-timerange-picker";
 import TimePicker from "react-time-picker";
 import FontAwesome from "react-fontawesome";
+import uuid from "react-uuid";
 
 const TimeRangeVerifier = () => {
 	const [rangeValue, onRangeChange] = useState(["10:00", "11:00"]);
@@ -60,7 +61,7 @@ const TimeRangeVerifier = () => {
 						</button>
 						<ul className='list'>
 							{ranges.map((range) => (
-								<li className='list--item'>
+								<li className='list--item' key={uuid()}>
 									{range.start} ~ {range.end}
 									<button className='button--delete'>
 										<FontAwesome
@@ -90,8 +91,9 @@ const TimeRangeVerifier = () => {
 						</button>
 						<ul className='list'>
 							{times.map((time) => (
-								<li className='list--item'>
+								<li className='list--item' key={uuid()}>
 									<FontAwesome
+										name='delete'
 										className={
 											isTimeInRange(time, ranges)
 												? "fas fa-check mark in--range"
@@ -116,7 +118,7 @@ const TimeRangeVerifier = () => {
 					<div className='section--body'>
 						<ul className='list'>
 							{ranges.map((range) => (
-								<li className='list--item'>
+								<li className='list--item' key={uuid()}>
 									{range.start} ~ {range.end}
 								</li>
 							))}
