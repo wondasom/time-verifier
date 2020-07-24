@@ -1,6 +1,6 @@
 # Time Verifier ⏰
 
-This is a samll test task for front-end development.
+This is a small test task for front-end development.
 
 
 ## 💁🏻‍♀️ Features
