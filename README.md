@@ -12,10 +12,20 @@ Users are able to
 - see time values marked when they are outside the given time ranges.
 
 
+## Core Concepts
+- data structure
+- JS type conversion 
+- JS event handler
+- JS ternary operator 
+- React JSX
+- React useState&hooks
+- React external plugins
+
+
 ## Future Tasks 💬
 - to apply container component pattern
 - to make the codes more modular
-- to add styled components
+- to implement styled components
 - ...
 
 
